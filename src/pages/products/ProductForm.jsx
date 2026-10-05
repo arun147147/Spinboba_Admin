@@ -224,6 +224,27 @@ const SpinBobaProductForm = ({
   };
 
 
+  useEffect(() => {
+  console.log("availableGroups changed", availableGroups);
+
+  if (
+    !isEditMode &&
+    availableGroups.length > 0
+  ) {
+    const defaultGroups = availableGroups.map((group) => ({
+      customization_group_id: group.customization_group_id,
+      is_required: [
+        "Size",
+        "Ice Level",
+        "Sweetness Level",
+      ].includes(group.group_name),
+    }));
+
+    console.log("Setting selected groups", defaultGroups);
+
+    setSelectedGroups(defaultGroups);
+  }
+}, [availableGroups, isEditMode]);
   // ============================================================
   // BACK
   // ============================================================

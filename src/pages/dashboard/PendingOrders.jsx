@@ -21,7 +21,7 @@ import DashboardPanel from "./DashboardPanel";
 
 import { colors } from "@/theme/colors";
 
-import { printDeliverySlip } from "@/utils/printDeliverySlip";
+// import { printDeliverySlip } from "@/utils/printDeliverySlip";
 
 /* =========================================================
    ORDERS AWAITING ACTION
@@ -141,11 +141,7 @@ const OrderRow = ({ order, formatPrice, onOpenTracking }) => {
             alignItems="center"
             sx={{ flexWrap: "wrap", gap: 0.75 }}
           >
-            <AppTypography
-              variant="body2"
-              sx={{ fontWeight: 700 }}
-              noWrap
-            >
+            <AppTypography variant="body2" sx={{ fontWeight: 700 }} noWrap>
               {order.customerName}
             </AppTypography>
 
@@ -191,7 +187,7 @@ const OrderRow = ({ order, formatPrice, onOpenTracking }) => {
           <AppTooltip title="Print delivery slip">
             <AppIconButton
               size="small"
-              onClick={() => printDeliverySlip(order)}
+              // onClick={() => printDeliverySlip(order)}
               aria-label="Print delivery slip"
               sx={{
                 border: "1px solid rgba(0,0,0,0.12)",
@@ -257,10 +253,7 @@ const OrderRow = ({ order, formatPrice, onOpenTracking }) => {
                     justifyContent="space-between"
                     spacing={1}
                   >
-                    <AppTypography
-                      variant="body2"
-                      sx={{ fontWeight: 700 }}
-                    >
+                    <AppTypography variant="body2" sx={{ fontWeight: 700 }}>
                       {item.quantity} × {item.productName}
                     </AppTypography>
 
@@ -284,10 +277,7 @@ const OrderRow = ({ order, formatPrice, onOpenTracking }) => {
                           size="small"
                           variant="outlined"
                           label={
-                            <AppTypography
-                              variant="caption"
-                              component="span"
-                            >
+                            <AppTypography variant="caption" component="span">
                               <AppBox
                                 component="span"
                                 sx={{ color: colors.textSecondary }}
@@ -295,10 +285,7 @@ const OrderRow = ({ order, formatPrice, onOpenTracking }) => {
                                 {option.groupName}:{" "}
                               </AppBox>
 
-                              <AppBox
-                                component="span"
-                                sx={{ fontWeight: 700 }}
-                              >
+                              <AppBox component="span" sx={{ fontWeight: 700 }}>
                                 {option.optionName}
                               </AppBox>
 
@@ -373,8 +360,7 @@ const PendingOrders = ({
 
   const visible = showAll ? orders : orders.slice(0, 5);
 
-  const openTracking = (orderId) =>
-    navigate(`/orders?orderId=${orderId}`);
+  const openTracking = (orderId) => navigate(`/orders?orderId=${orderId}`);
 
   const filtered = total !== undefined && total !== orders.length;
 
